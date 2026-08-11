@@ -15,6 +15,9 @@ public class samplewebsite {
 	@Test
 	public void mainScreenSearch() {
 		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless=new");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 		WebDriver chrome = new ChromeDriver(options);
 		chrome.get("https://toolsqa.com");
 		System.out.println("Window size: " + chrome.manage().window().getSize());
