@@ -20,6 +20,6 @@ public class seleniumBasicsTest {
 		System.out.println(driver.getTitle());
 		System.out.println(driver.getCurrentUrl());
 		assertEquals("https://www.netflix.com/in/", driver.getCurrentUrl());
-		driver.close();
+		driver.quit();
 	}
 }
