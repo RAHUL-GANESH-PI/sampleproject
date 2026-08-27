@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class seleniumBasicsTest {
+public class getTitleTest {
 
 	@Test
 	void viewChromeBrowser() {
