@@ -20,10 +20,8 @@ public class getTitleTest {
 		options.addArguments("--disable-dev-shm-usage");
 		ChromeDriver driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-		driver.manage().window().maximize();
 		driver.get("https://www.amazon.in/");
 		driver.findElement(By.id("nav-hamburger-menu")).click();
-		Thread.sleep(2000);
 		System.out.println(driver.getTitle());
 		System.out.println(driver.getCurrentUrl());
 		assertEquals("https://www.amazon.in/", driver.getCurrentUrl());
