@@ -18,7 +18,7 @@ public class getTitleTest {
 		options.addArguments("--headless=new");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
-		ChromeDriver driver = new ChromeDriver();
+		ChromeDriver driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		driver.manage().window().maximize();
 		driver.get("https://www.amazon.in/");
