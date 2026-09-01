@@ -27,4 +27,15 @@ public class streamsTest {
 				.equals(list.stream().filter(s -> s.startsWith("R")).collect(Collectors.toList())));
 	}
 
+	@Test
+	void sortList() {
+		assertTrue(Stream.of("Dheena", "Ram", "Ravi", "Swetha").collect(Collectors.toList())
+				.equals(list.stream().sorted().collect(Collectors.toList())));
+	}
+
+	@Test
+	void uppercaseList() {
+		assertTrue(Stream.of("RAM", "SWETHA", "DHEENA", "RAVI").collect(Collectors.toList())
+				.equals(list.stream().map(s -> s.toUpperCase()).collect(Collectors.toList())));
+	}
 }
