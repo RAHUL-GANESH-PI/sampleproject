@@ -1,5 +1,6 @@
 package seleniumBasics;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -37,5 +38,10 @@ public class streamsTest {
 	void uppercaseList() {
 		assertTrue(Stream.of("RAM", "SWETHA", "DHEENA", "RAVI").collect(Collectors.toList())
 				.equals(list.stream().map(s -> s.toUpperCase()).collect(Collectors.toList())));
+	}
+	
+	@Test
+	void countList() {
+		assertEquals(4,list.stream().count());
 	}
 }
