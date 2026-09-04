@@ -44,4 +44,9 @@ public class streamsTest {
 	void countList() {
 		assertEquals(4,list.stream().count());
 	}
+	
+	@Test
+	void findName() {
+		assertTrue(list.stream().anyMatch(s->s.equalsIgnoreCase("Dheena")));
+	}
 }
