@@ -49,4 +49,9 @@ public class streamsTest {
 	void findName() {
 		assertTrue(list.stream().anyMatch(s->s.equalsIgnoreCase("Dheena")));
 	}
+	
+	@Test
+	void AllNameMatch() {
+		assertEquals(true, list.stream().sorted().collect(Collectors.toList()).equals(list.stream().sorted().collect(Collectors.toList())));
+	}
 }
