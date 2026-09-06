@@ -54,4 +54,9 @@ public class streamsTest {
 	void AllNameMatch() {
 		assertEquals(true, list.stream().sorted().collect(Collectors.toList()).equals(list.stream().sorted().collect(Collectors.toList())));
 	}
+	
+	@Test
+	void printfirsttwoElements() {
+		list.stream().limit(2).collect(Collectors.toList()).forEach(s-> System.out.println(s));
+	}
 }
