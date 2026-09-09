@@ -57,6 +57,6 @@ public class streamsTest {
 	
 	@Test
 	void printfirsttwoElements() {
-		list.stream().limit(2).collect(Collectors.toList()).forEach(s-> System.out.println(s));
+		list.stream().limit(3).collect(Collectors.toList()).forEach(s-> System.out.println(s));
 	}
 }
