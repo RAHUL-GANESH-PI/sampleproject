@@ -11,9 +11,6 @@ public class getTitleTest {
 	void viewChromeBrowser() throws InterruptedException {
 
 		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless=new");
-//		options.addArguments("--no-sandbox");
-//		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("headless");
 		ChromeDriver driver = new ChromeDriver(options);
 		driver.get("https://the-internet.herokuapp.com");
