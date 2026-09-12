@@ -59,4 +59,9 @@ public class streamsTest {
 	void printfirsttwoElements() {
 		list.stream().limit(3).collect(Collectors.toList()).forEach(s-> System.out.println(s));
 	}
+	
+	@Test
+	void countList1() {
+		assertEquals(4,list.stream().count());
+	}
 }
