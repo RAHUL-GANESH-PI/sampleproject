@@ -2,6 +2,7 @@ package seleniumBasics;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -64,5 +65,31 @@ public class practiceTest {
 		List<String> list = List.of("Charlie", "Alice", "Bob");
 		String output = list.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.joining(", "));
 		System.out.println(output);
+	}
+	
+	@Test
+	void java7() {
+		System.out.println("Test 7 - Multiply numbers using reduce() ");
+		List<Integer> list = List.of(1, 2, 3, 4, 5);
+		Optional<Integer> multiplynum = list.stream().reduce((a,b) -> a*b);
+		if(multiplynum.isPresent()){
+			System.out.println(multiplynum);
+		}
+		else {
+			System.out.println("Values are not present");
+		}
+	}
+	
+	@Test
+	void java8() {
+		System.out.println("Test 8 - Finding the max integer using reduce()");
+		List<Integer> list = List.of(4, 9, 2, 17, 5);
+		Optional<Integer> max = list.stream().reduce(Integer::max);
+		if(max.isPresent()){
+			System.out.println(max);
+		}
+		else {
+			System.out.println("Values are not present");
+		}
 	}
 }
