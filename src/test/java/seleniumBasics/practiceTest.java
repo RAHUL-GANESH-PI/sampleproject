@@ -5,14 +5,21 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class practiceTest {
 	
-	@BeforeEach
-	void printStar() {
-		System.out.println("***************************");
+	@BeforeAll
+	static void printStarBefore() {
+		System.out.println("*********************************************************");
+	}
+	
+	@AfterEach
+	void printStarAfter() {
+		System.out.println("*********************************************************");
 	}
 
 	@Test
