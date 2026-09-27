@@ -66,7 +66,7 @@ public class streamsTest {
 	}
 	
 	@Test
-	void duplicate() {
+	void duplicate1() {
 		assertEquals(4,list.stream().count());
 	}
 }
