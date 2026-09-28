@@ -65,8 +65,4 @@ public class streamsTest {
 		assertEquals(4,list.stream().count());
 	}
 	
-	@Test
-	void duplicate1() {
-		assertEquals(4,list.stream().count());
-	}
 }
