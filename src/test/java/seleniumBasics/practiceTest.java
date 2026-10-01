@@ -16,10 +16,10 @@ public class practiceTest {
 		System.out.println("*********************************************************");
 	}
 	
-//	@AfterEach
-//	void printStarAfter() {
-//		System.out.println("*********************************************************");
-//	}
+	@AfterEach
+	void printStarAfter() {
+		System.out.println("*********************************************************");
+	}
 
 	@Test
 	void java() {
