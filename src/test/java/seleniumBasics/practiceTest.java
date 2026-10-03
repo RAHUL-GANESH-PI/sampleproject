@@ -88,7 +88,7 @@ public class practiceTest {
 	
 	@Test
 	void java8() {
-		System.out.println("Test 8 - Finding the max integer using reduce()");
+		System.out.println("Test 8 - Finding the max integer using reduce() function");
 		List<Integer> list = List.of(4, 9, 2, 17, 5);
 		Optional<Integer> max = list.stream().reduce(Integer::max);
 		if(max.isPresent()){
