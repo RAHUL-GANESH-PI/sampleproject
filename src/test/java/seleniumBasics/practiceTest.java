@@ -147,4 +147,49 @@ public class practiceTest {
 		Map<String, List<Employee>> answer = emps.stream().collect(Collectors.groupingBy(Employee::getDept));
 		System.out.println(answer);	
 	}
+	
+	@Test
+	void java14() {
+		List<Employee> emps = List.of(
+			    new Employee("Arun",  "Dev",  60000),
+			    new Employee("Bala",  "QA",   45000),
+			    new Employee("Chitra","Dev",  75000),
+			    new Employee("Divya", "HR",   40000),
+			    new Employee("Eswar", "QA",   52000),
+			    new Employee("Farah", "Dev",  68000)
+			);
+		System.out.println("Test 14 - Find the number of employees in each department");
+		Map<String,Long>answer = emps.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.counting()));
+		System.out.println(answer);	
+	}
+	
+	@Test
+	void java15() {
+		List<Employee> emps = List.of(
+			    new Employee("Arun",  "Dev",  60000),
+			    new Employee("Bala",  "QA",   45000),
+			    new Employee("Chitra","Dev",  75000),
+			    new Employee("Divya", "HR",   40000),
+			    new Employee("Eswar", "QA",   52000),
+			    new Employee("Farah", "Dev",  68000)
+			);
+		System.out.println("Test 15 - Find the total salary per department");
+		Map<String,Integer> answer = emps.stream().collect(Collectors.groupingBy(d->d.getDept(),Collectors.reducing(0,Employee::getSalary,Integer::sum)));
+		System.out.println(answer);	
+	}
+	
+	@Test
+	void java16() {
+		List<Employee> emps = List.of(
+			    new Employee("Arun",  "Dev",  60000),
+			    new Employee("Bala",  "QA",   45000),
+			    new Employee("Chitra","Dev",  75000),
+			    new Employee("Divya", "HR",   40000),
+			    new Employee("Eswar", "QA",   52000),
+			    new Employee("Farah", "Dev",  68000)
+			);
+		System.out.println("Test 16 - Find the average salary per department");  //Collectors.mapping(Employee::getSalary, Collectors.averagingLong(null)
+		Map<String, Double> answer = emps.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.averagingInt(Employee::getSalary)));
+		System.out.println(answer);	
+	}
 }
