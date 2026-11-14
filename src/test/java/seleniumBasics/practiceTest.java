@@ -2,6 +2,7 @@ package seleniumBasics;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -97,5 +98,53 @@ public class practiceTest {
 		else {
 			System.out.println("Values are not present");
 		}
+	}
+	
+	@Test
+	void java9() {
+		List<String> words = List.of("tiger", "ant", "tea", "lion", "tomato", "apple", "bee", "avocado");
+		System.out.println("Test 9 - groupingBy first letter");
+		Map<Character,List<String>> firstword = words.stream().collect(Collectors.groupingBy(n->n.charAt(0),Collectors.toList()));
+		System.out.println(firstword);
+	}
+	
+	@Test
+	void java10() {
+		List<String> words = List.of("tiger", "ant", "tea", "lion", "tomato", "apple", "bee", "avocado");
+		System.out.println("Test 10 - groupingBy length and count");
+		Map<Integer,Long> Answer = words.stream().collect(Collectors.groupingBy(String::length,Collectors.counting()));
+		System.out.println(Answer);
+	}
+	
+	@Test
+	void java11() {
+		List<String> words = List.of("tiger", "ant", "tea", "lion", "tomato", "apple", "bee", "avocado");
+		System.out.println("Test 11 - Group the words by first letter, but show only the length of each word ");
+		Map<Character,List<Integer>> answer = words.stream().collect(Collectors.groupingBy(c->c.charAt(0),Collectors.mapping(n->n.length(), Collectors.toList())));
+		System.out.println(answer);
+	}
+	
+	@Test
+	void java12() {
+		List<String> words = List.of("tiger", "ant", "tea", "lion", "tomato", "apple", "bee", "avocado");
+		System.out.println("Test 12 - Group the words by first letter, but show only the words in uppercase ");
+		Map<Character,List<String>>answer = words.stream().collect(Collectors.groupingBy(c->c.charAt(0),Collectors.mapping(String::toUpperCase, Collectors.toList())));
+		System.out.println(answer);		
+	}
+	
+	@Test
+	void java13() {
+		List<Employee> emps = List.of(
+			    new Employee("Arun",  "Dev",  60000),
+			    new Employee("Bala",  "QA",   45000),
+			    new Employee("Chitra","Dev",  75000),
+			    new Employee("Divya", "HR",   40000),
+			    new Employee("Eswar", "QA",   52000),
+			    new Employee("Farah", "Dev",  68000)
+			);
+		System.out.println("Test 13 - Group employees by department");
+		//I have added toString() method in Employee.java to convert the object into string
+		Map<String, List<Employee>> answer = emps.stream().collect(Collectors.groupingBy(Employee::getDept));
+		System.out.println(answer);	
 	}
 }
