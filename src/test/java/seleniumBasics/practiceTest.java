@@ -1,6 +1,7 @@
 package seleniumBasics;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -191,5 +192,30 @@ public class practiceTest {
 		System.out.println("Test 16 - Find the average salary per department");  //Collectors.mapping(Employee::getSalary, Collectors.averagingLong(null)
 		Map<String, Double> answer = emps.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.averagingInt(Employee::getSalary)));
 		System.out.println(answer);	
+	}
+	
+	@Test
+	void java17() {
+		Map<String, Integer> marks = new HashMap<>();
+		marks.put("Ravi", 78);
+		marks.put("Anu", 92);
+		marks.put("Kiran", 65);
+		marks.put("Mala", 85);
+		marks.put("Sam", 50);
+		System.out.println("Test 17 - Print the names of students who scored below 70");
+		marks.entrySet().stream().filter(n->n.getValue()<70).forEach(n->System.out.println(n.getKey()));
+	}
+	
+	@Test
+	void java18() {
+		Map<String, Integer> marks = new HashMap<>();
+		marks.put("Ravi", 78);
+		marks.put("Anu", 92);
+		marks.put("Kiran", 65);
+		marks.put("Mala", 85);
+		marks.put("Sam", 50);
+		System.out.println("find the student with the lowest mark");
+		Map.Entry<String,Integer>low = marks.entrySet().stream().min(Map.Entry.comparingByValue()).get();
+		System.out.println("Lowest Mark: " + "\n" + "Student :" + low.getKey() + "\n" + "Mark :" + low.getValue());
 	}
 }
